@@ -228,3 +228,27 @@ class MyMap:
     def __iter__(self):
         print('sozdali')
         return self
+
+
+
+
+def foo(x):
+    x+=1
+    return x
+
+
+def mymap(func,list_):
+    for i in list_:
+        yield func(i)
+
+
+my=mymap(foo, [1,2,3])
+
+
+#print(list(my))
+
+print(next(my))
+
+print(next(my))
+
+print(next(my))
