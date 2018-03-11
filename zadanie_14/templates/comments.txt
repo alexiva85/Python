@@ -1,0 +1,25 @@
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        Сообщения:
+            {% for category, message in messages %}
+                Категория: {{ category }}
+                Сообщение: {{ message }}
+            {% endfor %}
+        Конец сообщений
+    {% endif %}
+{% endwith %}
+
+
+Посты в блоге:
+    {% for message in messages %}
+    Сообщение: {{ message.message }}
+        Комменты:
+        {% for comment in comments %}
+        {% if message.id == comment.message.id %}
+            Автор : {{ comment.user.name }}
+            Комментарий : {{ comment.comment }}
+        {% endif %}
+        {% endfor %}
+{% endfor %}
+
+Конец постов
